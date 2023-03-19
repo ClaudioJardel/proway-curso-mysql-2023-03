@@ -168,12 +168,21 @@ WHERE YEAR(data_nascimento) >= 2000
 ORDER BY YEAR(data_nascimento) ASC, MONTH (data_nascimento) ASC, DAY(data_nascimento);
 
 -- Operador Lógico AND
+-- V e V => V 
+-- V e F => F
+-- F e V => F
+-- F e F => F
 
+-- Consultar os alunos que nasceram na década de 90
 SELECT * FROM alunos
 WHERE   YEAR(data_nascimento) >= 1990 AND
         YEAR(data_nascimento) <= 1999;
 
 -- Operador Lógico OR
+-- V ou V => V
+-- V ou F => V
+-- F ou V => V
+-- F ou F =: F
 -- Consultar os cursos com o nome C# ou Python
 SELECT id,nome FROM cursos WHERE nome="C#" OR nome="Python";
 SELECT id,nome FROM cursos WHERE nome IN ("C#","Python","Java");
@@ -189,3 +198,50 @@ SELECT * FROM cursos;
 
 SELECT * FROM cursos WHERE carga_horaria >= 40 AND carga_horaria <= 45; -- Sem Between
 SELECT * FROM cursos WHERE carga_horaria BETWEEN 40 AND 45; -- Com Between
+
+-- Consultar os cursos limitados a dois registros
+ SELECT * FROM cursos LIMIT 2;
+--+----+-------+---------------+
+--| id | nome  | carga_horaria |
+--+----+-------+---------------+
+--|  1 | MySQL |            28 |
+--|  2 | C#    |            40 |
+--+----+-------+---------------+
+--2 rows in set (0.00 sec)
+
+ SELECT * FROM cursos LIMIT 0,2;
+--+----+-------+---------------+
+--| id | nome  | carga_horaria |
+--+----+-------+---------------+
+--|  1 | MySQL |            28 |
+--|  2 | C#    |            40 |
+--+----+-------+---------------+
+--2 rows in set (0.00 sec)
+
+ SELECT * FROM cursos LIMIT 2,2;
+--+----+--------+---------------+
+--| id | nome   | carga_horaria |
+--+----+--------+---------------+
+--|  3 | Python |            39 |
+--|  4 | Java   |            41 |
+--+----+--------+---------------+
+--2 rows in set (0.00 sec)
+
+ SELECT * FROM cursos LIMIT 4,2;
+--+----+-----------+---------------+
+--| id | nome      | carga_horaria |
+--+----+-----------+---------------+
+--|  5 | HTML, CSS |            32 |
+--|  6 | React     |            52 |
+--+----+-----------+---------------+
+--2 rows in set (0.00 sec)
+
+-- Consultar o nome e a geração do aluno de acordo com data de nascimento
+SELECT 
+    nome, 
+    CASE WHEN YEAR(data_nascimento) BETWEEN 1980 AND 1994 THEN "Geração Y"
+        WHEN YEAR(data_nascimento) BETWEEN 1995 AND 2009 THEN "Geração Z"
+        WHEN YEAR(data_nascimento) BETWEEN 2010 AND 2023 THEN "Geração Alpha"
+        ELSE "Geração X"
+END AS "Geração" -- AS chamado ALIAS (Apelido)
+FROM alunos;
