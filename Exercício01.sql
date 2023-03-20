@@ -29,3 +29,7 @@ INSERT INTO estoques(produto, quantidade, preco_unitario, data_vencimento, categ
 INSERT INTO estoques(produto, quantidade, preco_unitario, data_vencimento, categoria) VALUE ("Pepsi Black", 4, 6.99, "2024-04-20","BEBIDAS");
 INSERT INTO estoques(produto, quantidade, preco_unitario, data_vencimento, categoria) VALUE ("Coca Cola 2L", 5, 9.90, "2024-05-21","BEBIDAS");
 INSERT INTO estoques(produto, quantidade, preco_unitario, data_vencimento, categoria) VALUE ("Detergente", 9, 2.89, "2025-05-04" ,"PRODUTO DE LIMPEZA");
+
+--TESTANDO COMANDOS GIT EM CASA
+--att1- consegui puxar meu repositório do github para a máquina em casa com poucos passos
+--att2- aprendi a abrir o VS Code dentro do CMD com o comando "code ."
