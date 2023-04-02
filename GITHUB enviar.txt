@@ -1,0 +1,26 @@
+Git (cuidar com o diretório do local)
+
+P:\Cursos\MySQL>dir
+>git init
+>git status
+>git add
+>git status
+>git commit -m "Descrição do projeto"
+
+>git config --global user.name "Claudio Jardel Gonçalves"
+>git config --global user.email "claudiojardelgoncalves@gmail.com"
+
+>git log
+>git remote add origin https://github.com/ClaudioJardel/proway-curso-mysql-2023-03.git (SOMENTE QUANDO FOR REPOSITÓRIO NOVO)
+
+>git push origin master
+
+>git add . (enviar todos os arquivos)
+
+>git clone https://github.com/ClaudioJardel/proway-curso-mysql-2023-03.git
+
+cd.. (voltar pasta)
+cd "pasta" (entrar pasta)
+
+>git fetch
+>git pull origin master
